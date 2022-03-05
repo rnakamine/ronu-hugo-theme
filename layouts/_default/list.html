@@ -2,7 +2,8 @@
 	{{ $paginator := .Paginate (.Pages) }}
 
 	{{ range $paginator.Pages }}
-		<h1>{{ .Title }}{{ if .Draft }} ::Draft{{ end }}</h1>
+		<h2>{{ .Title }}{{ if .Draft }} ::Draft{{ end }}</h2>
+        <time datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format "January 2, 2006" }}</time>
 		<p>{{ .Description | plainify | safeHTML }}
 		<a href="{{ .Permalink }}"> Read More.</a></p>
 	{{ end }}
